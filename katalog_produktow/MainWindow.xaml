@@ -10,14 +10,11 @@
         <TextBlock Text="Nazwa produkty" />
         <TextBox x:Name="NazwaTextBoxa" Margin="0, 5, 0, 10"/>
         <TextBlock Text="Cena" />
-<<<<<<< HEAD
         <TextBox x:Name="CenaTextBoxa" Margin="0, 5, 0, 10"/>
         <TextBlock Text="Ilość Produktu" />
         <TextBox x:Name="IloscTextBoxa" Margin="0, 5, 0, 10"/>
         <Button x:Name="ObliczButton" Content="Oblicz" Click="Oblicz"/>
 
         <TextBlock x:Name="WynicBlock" FontSize="16" />
-=======
->>>>>>> bce39090d4209c7c4af413b08d9c499eea89e17a
     </StackPanel>
 </Window>
