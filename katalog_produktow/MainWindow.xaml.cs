@@ -39,10 +39,10 @@ namespace katalog_produktow
             //    int wynik = cena * ilosc;
             //    WynicBlock.Text = $"Wynik: {wynik}";
 
-            if (double.TryParse(CenaTextBoxa.Text, out double cena))
+            if (!double.TryParse(CenaTextBoxa.Text, out double cena))
             {
-                WynicBlock.Text = "Nie poprawna wartość ceny";
-                return
+                WynicBlock.Text = "Niepoprawna wartość ceny";
+                return;
             }
 
             if (!int.TryParse(IloscTextBoxa.Text, out int ilosc))
@@ -50,8 +50,13 @@ namespace katalog_produktow
                 WynicBlock.Text = "Nie poprawna wartość ilości";
                 return;
             }
+
             double wartoscZamowienia = cena * ilosc;
-            WynicBlock.Text = wartoscZamowienia.ToString();
+            WynicBlock.Text = NazwaTextBoxa.Text + " " + wartoscZamowienia.ToString() + " " + ilosc + " " + KategorieComboBox.SelectedItem.ToString();
+
+
+
+
         }
     }
 }
