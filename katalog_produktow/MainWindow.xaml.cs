@@ -23,22 +23,35 @@ namespace katalog_produktow
 
         private void Oblicz(object sender, RoutedEventArgs e)
         {
-            string stringcena = CenaTextBoxa.Text;
-            int cena = int.Parse(stringcena);
+            //string stringcena = CenaTextBoxa.Text;
+            //int cena = int.Parse(stringcena);
 
-            string stringilosc = IloscTextBoxa.Text;
-            int ilosc = int.Parse(stringilosc);
+            //string stringilosc = IloscTextBoxa.Text;
+            //int ilosc = int.Parse(stringilosc);
 
-            if (cena < 1 || ilosc < 1)
+            //if (cena < 1 || ilosc < 1)
+            //{
+            //    MessageBox.Show("Cena i ilość muszą być większe niż zero.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
+            //else
+            //{
+            //    int wynik = cena * ilosc;
+            //    WynicBlock.Text = $"Wynik: {wynik}";
+
+            if (double.TryParse(CenaTextBoxa.Text, out double cena))
             {
-                MessageBox.Show("Cena i ilość muszą być większe niż zero.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                WynicBlock.Text = "Nie poprawna wartość ceny";
+                return
+            }
+
+            if (!int.TryParse(IloscTextBoxa.Text, out int ilosc))
+            {
+                WynicBlock.Text = "Nie poprawna wartość ilości";
                 return;
             }
-            else
-            {
-                int wynik = cena * ilosc;
-                WynicBlock.Text = $"Wynik: {wynik}";
-            }
+            double wartoscZamowienia = cena * ilosc;
+            WynicBlock.Text = wartoscZamowienia.ToString();
         }
     }
 }
