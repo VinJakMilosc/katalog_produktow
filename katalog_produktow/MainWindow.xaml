@@ -46,6 +46,6 @@
 
         <ListBox x:Name="ListaProduktow" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0, 12, 0, 12"/>
        
-        <Button Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" x:Name="UsunProduktButton" Content="Usuń Produkt" />
+        <Button Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" x:Name="UsunProduktButton" Content="Usuń Produkt" Click="UsunProdukt"/>
     </Grid>
 </Window>

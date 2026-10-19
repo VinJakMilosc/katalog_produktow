@@ -79,5 +79,17 @@ namespace katalog_produktow
 
             produkty.Add(new Produkt { Nazwa = nazwa, Cena = cena, Ilosc = ilosc, Kategoria = kategoria});
         }
+
+        private void UsunProdukt(object sender, RoutedEventArgs e)
+        {
+            if (ListaProduktow.SelectedItem is Produkt wybranoProdukt)
+            {
+                produkty.Remove(wybranoProdukt);
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano produktu do usunięcia.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
