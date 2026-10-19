@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace katalog_produktow
 {
@@ -16,7 +17,7 @@ namespace katalog_produktow
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Produkt> produkty = new List<Produkt>();
+        ObservableCollection<Produkt> produkty = new ObservableCollection<Produkt>();
         public MainWindow()
         {
             InitializeComponent();
@@ -66,10 +67,17 @@ namespace katalog_produktow
 
 
             WynicBlock.Text = NazwaTextBoxa.Text + " " + wartoscZamowienia.ToString() + " " + ilosc + " " + KategorieComboBox.SelectedItem as string;
+        }
 
+  
+        private void DodajProdukt(object sender, RoutedEventArgs e)
+        {
+            string nazwa = NazwaTextBoxa.Text;
+            double cena = double.Parse(CenaTextBoxa.Text);
+            int ilosc = int.Parse(IloscTextBoxa.Text);
+            string kategoria = KategorieComboBox.SelectedItem as string ?? "brak kategorii";
 
-
-
+            produkty.Add(new Produkt { Nazwa = nazwa, Cena = cena, Ilosc = ilosc, Kategoria = kategoria});
         }
     }
 }
