@@ -16,9 +16,15 @@ namespace katalog_produktow
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Produkt> produkty = new List<Produkt>();
         public MainWindow()
         {
             InitializeComponent();
+            KategorieComboBox.ItemsSource = new string[] { "Elektronika", "Odzież", "Książki", "Meble" };
+            KategorieComboBox.SelectedIndex = 0;
+            produkty. Add(new Produkt { Nazwa = "Laptop", Cena = 3000, Ilosc = 5, Kategoria = "Elektronika" });
+            produkty.Add(new Produkt { Nazwa = "Koszula", Cena = 100, Ilosc = 10, Kategoria = "Odzież" });
+            ListaProduktow.ItemsSource = produkty;
         }
 
         private void Oblicz(object sender, RoutedEventArgs e)
@@ -52,7 +58,14 @@ namespace katalog_produktow
             }
 
             double wartoscZamowienia = cena * ilosc;
-            WynicBlock.Text = NazwaTextBoxa.Text + " " + wartoscZamowienia.ToString() + " " + ilosc + " " + KategorieComboBox.SelectedItem.ToString();
+
+            if (PromocjeCheckBox.IsChecked == true)
+            {
+                wartoscZamowienia *= 0.9;
+            }
+
+
+            WynicBlock.Text = NazwaTextBoxa.Text + " " + wartoscZamowienia.ToString() + " " + ilosc + " " + KategorieComboBox.SelectedItem as string;
 
 
 
