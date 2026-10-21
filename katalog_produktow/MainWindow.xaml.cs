@@ -17,7 +17,7 @@ namespace katalog_produktow
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Produkt> produkty = new ObservableCollection<Produkt>();
+        public ObservableCollection<Produkt> produkty { get; set; } = new ObservableCollection<Produkt>();
         public MainWindow()
         {
             InitializeComponent();
@@ -25,7 +25,8 @@ namespace katalog_produktow
             KategorieComboBox.SelectedIndex = 0;
             produkty. Add(new Produkt { Nazwa = "Laptop", Cena = 3000, Ilosc = 5, Kategoria = "Elektronika" });
             produkty.Add(new Produkt { Nazwa = "Koszula", Cena = 100, Ilosc = 10, Kategoria = "Odzież" });
-            ListaProduktow.ItemsSource = produkty;
+            //ListaProduktow.ItemsSource = produkty;
+            DataContext = this;
         }
 
         private void Oblicz(object sender, RoutedEventArgs e)

@@ -11,9 +11,9 @@ namespace katalog_produktow
         public int Ilosc { get; set; }
         public string Kategoria { get; set; } = "";
 
-        public override string ToString()
-        {
-            return $"{Nazwa} ({Kategoria}): {Cena:F2} zł, Ilość: {Ilosc}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"{Nazwa} ({Kategoria}): {Cena:F2} zł, Ilość: {Ilosc}";
+        //}
     }
 }

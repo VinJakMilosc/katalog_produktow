@@ -44,8 +44,21 @@
         
         <Button Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" x:Name="DodajProduktButton" Content="Dodaj Produkt" Click="DodajProdukt"/>
 
-        <ListBox x:Name="ListaProduktow" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0, 12, 0, 12"/>
-       
+        <ListBox x:Name="ListaProduktow" ItemsSource="{Binding produkty}" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0, 12, 0, 12">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0, 2">
+                        <TextBlock Text="{Binding Nazwa}" FontWeight="Bold"/>
+                        <TextBlock>
+                            <Run Text="{Binding Kategoria}"/>
+                            <Run Text=" - "/>
+                            <Run Text="{Binding Cena, StringFormat={}{0:F2} zł}"/>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
         <Button Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" x:Name="UsunProduktButton" Content="Usuń Produkt" Click="UsunProdukt"/>
     </Grid>
 </Window>
