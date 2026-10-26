@@ -9,29 +9,29 @@
     <Grid Margin="20, 20, 20,20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="Auto"/>
-            <ColumnDefinition  Width="Auto"/>
+            <ColumnDefinition  Width="*"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition  Height="Auto"/>
-            <RowDefinition  Height="Auto"/>
-            <RowDefinition  Height="Auto"/>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition  Height="Auto"/>
-            <RowDefinition  Height="Auto"/>
-            <RowDefinition  Height="*"/>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Nazwa produkty" />
-        <TextBox x:Name="NazwaTextBoxa" Grid.Row="0" Grid.Column="1" Margin="0, 5, 0, 10"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Nazwa produkty"  Margin="0,0,10,0" VerticalAlignment="Center" />
+        <TextBox x:Name="NazwaTextBoxa" Grid.Row="0" Grid.Column="1" Margin="0, 5, 0, 10" VerticalAlignment="Center"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Cena"  VerticalAlignment="Center"/>
+        <TextBox x:Name="CenaTextBoxa" Grid.Row="1" Grid.Column="1" Margin="0, 5, 0, 10" VerticalAlignment="Center"/>
         
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Cena" />
-        <TextBox x:Name="CenaTextBoxa" Grid.Row="1" Grid.Column="1" Margin="0, 5, 0, 10"/>
-        
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Ilość Produktu" />
-        <TextBox x:Name="IloscTextBoxa" Grid.Row="2" Grid.Column="1" Margin="0, 5, 0, 10"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Ilość Produktu"  VerticalAlignment="Center"/>
+        <TextBox x:Name="IloscTextBoxa" Grid.Row="2" Grid.Column="1" Margin="0, 5, 0, 10" VerticalAlignment="Center"/>
 
         <TextBlock Grid.Row="3" Grid.Column="0" Text="Kategoria"  VerticalAlignment="Center"/>
         <ComboBox x:Name="KategorieComboBox" Grid.Row="3" Grid.Column="1" Margin="0, 5, 0, 10" VerticalAlignment="Center" />
@@ -41,19 +41,19 @@
         <CheckBox x:Name="PromocjeCheckBox" Grid.Row="4" Grid.Column="1" Margin="0, 5, 0, 10" VerticalAlignment="Center"/>
 
         <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" x:Name="ObliczButton" Content="Oblicz" Click="Oblicz"/>
-        <TextBlock x:Name="WynicBlock" Grid.Column="2" Grid.Row="6" FontSize="16" />
+        <TextBlock x:Name="WynicBlock" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" FontSize="16" />
         
         <Button Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" x:Name="DodajProduktButton" Content="Dodaj Produkt" Click="DodajProdukt"/>
 
         <ListBox x:Name="ListaProduktow" ItemsSource="{Binding produkty}" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="0, 12, 0, 12">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="0, 2">
+                    <StackPanel Margin="0,2">
                         <TextBlock Text="{Binding Nazwa}" FontWeight="Bold"/>
                         <TextBlock>
                             <Run Text="{Binding Kategoria}"/>
                             <Run Text=" - "/>
-                            <Run Text="{Binding Cena, StringFormat={}{0:F2} zł}"/>
+                            <Run Text="{Binding Cena, StringFormat={}{0:F2} zł}" />
                         </TextBlock>
                     </StackPanel>
                 </DataTemplate>
