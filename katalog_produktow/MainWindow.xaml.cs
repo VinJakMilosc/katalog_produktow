@@ -23,7 +23,7 @@ namespace katalog_produktow
             InitializeComponent();
             KategorieComboBox.ItemsSource = new string[] { "Elektronika", "Odzież", "Książki", "Meble" };
             KategorieComboBox.SelectedIndex = 0;
-            produkty. Add(new Produkt { Nazwa = "Laptop", Cena = 3000, Ilosc = 5, Kategoria = "Elektronika" });
+            produkty.Add(new Produkt { Nazwa = "Laptop", Cena = 3000, Ilosc = 5, Kategoria = "Elektronika" });
             produkty.Add(new Produkt { Nazwa = "Koszula", Cena = 100, Ilosc = 10, Kategoria = "Odzież" });
             //ListaProduktow.ItemsSource = produkty;
             DataContext = this;
