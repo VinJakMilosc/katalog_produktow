@@ -21,7 +21,7 @@ namespace katalog_produktow
         public MainWindow()
         {
             InitializeComponent();
-            KategorieComboBox.ItemsSource = new string[] { "Elektronika", "Odzież", "Książki", "Meble" };
+            KategorieComboBox.ItemsSource = new string[] { "Elektronika", "Odzież", "Książki", "Meble", "Weed" };
             KategorieComboBox.SelectedIndex = 0;
             produkty.Add(new Produkt { Nazwa = "Laptop", Cena = 3000, Ilosc = 5, Kategoria = "Elektronika" });
             produkty.Add(new Produkt { Nazwa = "Koszula", Cena = 100, Ilosc = 10, Kategoria = "Odzież" });
@@ -85,12 +85,39 @@ namespace katalog_produktow
         {
             if (ListaProduktow.SelectedItem is Produkt wybranoProdukt)
             {
-                produkty.Remove(wybranoProdukt);
+                MessageBoxResult wynik = MessageBox.Show($"Czy na pewno chcesz usunąć produkt {wybranoProdukt.Nazwa}?", "Potwierdzenie", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (wynik == MessageBoxResult.Yes)
+                {
+                    produkty.Remove(wybranoProdukt);
+                }
             }
             else
             {
                 MessageBox.Show("Nie wybrano produktu do usunięcia.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void PokazZaznaczony(object sender,SelectionChangedEventArgs e)
+        {
+            if (ListaProduktow.SelectedItem is not Produkt p) return;
+            //Produkt p = ListaProduktow.SelectedItem as Produkt;
+            NazwaTextBoxa.Text = p.Nazwa;
+            CenaTextBoxa.Text = p.Cena.ToString("F2");
+            IloscTextBoxa.Text = p.Ilosc.ToString();    
+
+        }
+
+        private void Zapisz(object sender, RoutedEventArgs e)
+        {
+            if(ListaProduktow.SelectedItem is not Produkt p) return;
+            if (!double.TryParse(CenaTextBoxa.Text, out double cena) || cena < 0) return;
+            if (!int.TryParse(IloscTextBoxa.Text, out int ilosc) || ilosc < 0) return;
+            string nazwa = NazwaTextBoxa.Text;
+            p.Nazwa = nazwa;
+            p.Cena = cena;
+            p.Ilosc = ilosc;
+            WynicBlock.Text = $"Zapisano zmiany dla produktu {p.Nazwa}";
+
         }
     }
 }
