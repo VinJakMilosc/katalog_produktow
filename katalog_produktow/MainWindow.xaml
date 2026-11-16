@@ -68,6 +68,7 @@
             <TextBlock Text="{Binding Nazwa}" FontSize="18" />
             <TextBlock Text="{Binding Ilosc, StringFormat=Na stanie {0} szt.}" />
             <TextBlock Text="{Binding Cena, StringFormat=Cena: {0:F2} zł}" />
+            <TextBlock Text="{Binding WartoscZamowienia, StringFormat=Wartość zamówienia: {0:F2} zł}" />
         </StackPanel>
     </Grid>
 </Window>

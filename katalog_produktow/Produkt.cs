@@ -24,11 +24,11 @@ namespace katalog_produktow
             set { ilosc = value < 0 ? 0 : value; Zmiana(nameof(Ilosc)); }
         }
         public string Kategoria { get; set; } = "";
-        //nadpisujemy domyślną metodę ToString, aby zwracała czytelny opis produktu
-        //public override string ToString()
-        //{
-        //    return $"{Nazwa} ({Kategoria}): {Cena:F2} zł, ilość: {Ilosc}";
-        //}
+       
+        public double WartoscZamowienia
+        {
+            get { return Cena * Ilosc; }
+        }
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private void Zmiana(string nazwaWlasciwosci)
